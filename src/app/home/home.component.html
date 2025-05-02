@@ -1,34 +1,35 @@
-
 <body>
-  <div class="container">
+<div class="container">
+  <main class="main-content">
+    <h1>Bienvenue sur le tableau de bord</h1>
 
-<main class="main-content">
-  <h1>Bienvenue sur le tableau de bord</h1>
+    <div class="card-grid">
+      <div class="card" *ngFor="let p of recetteArray">
+        <div class="row g-0"> <!-- Ajout de g-0 pour supprimer les espacements -->
+          <!-- Partie Image -->
+          <div class="col-md-4">
+            <img [src]="p.image || 'assets/images/default-recipe.jpg'"
+                 [alt]="p.nom"
+                 class="img-fluid rounded-start h-100"
+                 style="object-fit: cover;"
+                 onerror="this.src='assets/images/default-recipe.jpg'">
+          </div>
 
-  <div class="card-grid">
-    <div class="card"  *ngFor="let p of recetteArray">
-      <div class="row">
-        <img src="/{{p.image}}" alt="Image 1" class="col-sm-4">
-        <div class="col-sm-8">
-          <h3 id="titre">{{ p.nom }}</h3>
-          <p id="dis">{{ p.category }}</p>
 
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ p.nom }}</h5>
+              <p class="card-text">
+                <span class="badge bg-primary">{{ p.category }}</span>
+              </p>
+              <p class="card-text">
+                <small class="text-muted">Type: {{ p.type }}</small>
+              </p>
+            </div>
+          </div>
         </div>
-
-      </div>
-
-
       </div>
     </div>
-
-
-
-
-
-</main>
-
-
-  </div>
+  </main>
+</div>
 </body>
-
-

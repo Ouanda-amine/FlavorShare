@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import {RecetteService} from '../recette.service';
 import {Router} from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-create',
   imports: [
-    FormsModule
+    FormsModule,
+    NgIf
   ],
   templateUrl: './create.component.html',
   styleUrl: './create.component.css'
