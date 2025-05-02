@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import {RecetteService} from '../recette.service';
 import {Router} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-create',
-  imports: [],
+  imports: [
+    FormsModule
+  ],
   templateUrl: './create.component.html',
   styleUrl: './create.component.css'
 })
@@ -14,7 +17,7 @@ export class CreateComponent  {
     nom : "",
     type : "",
     image : "",
-    ingrediant : "",
+    ingredient : "",
     chef : "",
     category : ""
 
@@ -26,8 +29,10 @@ export class CreateComponent  {
 
   createrec(){
     this.service.create(this.data).subscribe({
-      next : (data)=>
+      next : (data)=>{
+
         this.router.navigate(['/accueil'])
+      }
       }
 
     )

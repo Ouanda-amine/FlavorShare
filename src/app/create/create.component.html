@@ -1,1 +1,51 @@
+<div class="container mt-5">
+  <h1 class="mb-4">Ajouter une nouvelle recette</h1>
 
+  <form (ngSubmit)="createrec()"> <!-- Ajout de ngSubmit -->
+    <div class="mb-3">
+      <label for="nom" class="form-label">Nom de la recette</label>
+      <input type="text" class="form-control" [(ngModel)]="data.nom" name="nom" id="nom" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="type" class="form-label">Type de recette</label>
+      <select class="form-select" [(ngModel)]="data.type" name="type" id="type" required>
+        <option value="" selected disabled>Choisissez un type</option>
+        <option value="entree">Entrée</option>
+        <option value="plat">Plat principal</option>
+        <option value="dessert">Dessert</option>
+        <option value="boisson">Boisson</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">URL de l'image</label>
+      <input type="url" class="form-control" [(ngModel)]="data.image" name="image" id="image">
+    </div>
+
+    <div class="mb-3">
+      <label for="ingredient" class="form-label">Ingrédients</label>
+      <textarea class="form-control" [(ngModel)]="data.ingredient" name="ingredient" id="ingredient" rows="4" required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="chef" class="form-label">Chef</label>
+      <input type="text" class="form-control" [(ngModel)]="data.chef" name="chef" id="chef">
+    </div>
+
+    <div class="mb-3">
+      <label for="category" class="form-label">Catégorie</label>
+      <select class="form-select" [(ngModel)]="data.category" name="category" id="category" required>
+        <option value="standard">Standard</option>
+        <option value="vegetarien">Végétarien</option>
+        <option value="vegan">Végan</option>
+        <option value="sans-gluten">Sans gluten</option>
+      </select>
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button type="reset" class="btn btn-secondary me-md-2">Annuler</button>
+      <button type="submit" class="btn btn-primary">Enregistrer</button> <!-- Retirer le click -->
+    </div>
+  </form>
+</div>
